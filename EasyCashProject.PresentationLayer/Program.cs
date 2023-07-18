@@ -1,13 +1,21 @@
 using EasyCashIdentityProject.BusinessLayer.Extensions;
+using EasyCashIdentityProject.DataAccessLayer.Concrete;
+using EasyCashIdentityProject.EntityLayer.Concrete;
+using EasyCashProject.PresentationLayer.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.ContainerDependencies();
+
+builder.Services.AddDbContext<EasyCashContext>();
+builder.Services.AddIdentity<AppUser, AppRole>()
+    .AddEntityFrameworkStores<EasyCashContext>()
+    .AddErrorDescriber<CustomIdentityValidator>();
 
 var app = builder.Build();
 
-builder.Services.ContainerDependencies();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -22,6 +30,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

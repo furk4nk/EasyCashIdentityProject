@@ -1,0 +1,20 @@
+﻿@model MailConfirmViewModel
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/js/bootstrap.min.js" rel="stylesheet">
+<div class="container">
+    <br />
+    <br />
+
+    <form asp-action="Index" asp-controller="MailConfirm" method="post">
+        <label>Mail Adresiniz</label>
+        <input type="text" class="form-control" asp-for="mail" value="@ViewBag.address" />
+
+        <label>Doğrulama Kodunu giriniz</label>
+        <input type="text" class="form-control" asp-for="code" />
+
+        <button type="submit" class="btn btn-primary">Hesabı Aktifleştir</button>
+    </form>
+</div>

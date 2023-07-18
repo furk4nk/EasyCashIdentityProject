@@ -23,7 +23,9 @@ namespace EasyCashIdentityProject.BusinessLayer.FluentValidation.AppUserValidati
 
 
             //Email Rules
-            RuleFor(x => x.Email).EmailAddress().WithMessage("Lütfen Geçerli Bir Email Adresi Giriniz");
+            RuleFor(x => x.Email).EmailAddress().WithMessage("Lütfen Geçerli Bir Email Adresi Giriniz")
+                .NotEmpty().WithMessage("Mail Adresi Alanı Boş Olamaz");
+
 
 
 
