@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EasyCashIdentityProject.EntityLayer.Abstract
+﻿namespace EasyCashIdentityProject.EntityLayer.Abstract
 {
     public abstract class BaseEntity
     {
         public int ID { get; set; }
     }
 }
-    
